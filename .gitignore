@@ -1,0 +1,12 @@
+*.jar
+*-checkpoint.ipynb
+*.csv
+*-checkpoint
+.env
+.ipynb_checkpoints/
+.gitattributes
+/data/
+.vscode/
+*.log
+.snakemake/
+.DS_store
