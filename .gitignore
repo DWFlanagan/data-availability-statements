@@ -4,3 +4,5 @@
 *-checkpoint
 .env
 .ipynb_checkpoints
+.gitignore
+.gitattributes
