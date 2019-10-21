@@ -2,7 +2,7 @@
 
 
 rule Finish:
-    input: "data/interim/data_statements.feather"
+    input: "data/processed/tokenized.feather"
     # Put the final output file as the first rule so all rules run.
 
 rule Extract_data:
@@ -13,3 +13,8 @@ rule Filter_data:
     input: "data/raw/das.feather"
     output: "data/interim/data_statements.feather"
     script: "src/data/0.2-DWFlanagan-Prepare-and-filter.py"
+
+rule Tokenize_data:
+    input: "data/interim/data_statements.feather"
+    output: "data/processed/tokenized.feather"
+    script: "src/features/0.4-DWFlanagan-Tokenize.py"
