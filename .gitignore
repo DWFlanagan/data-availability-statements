@@ -1,8 +1,0 @@
-*.jar
-*-checkpoint.ipynb
-*.csv
-*-checkpoint
-.env
-.ipynb_checkpoints
-.gitignore
-.gitattributes
