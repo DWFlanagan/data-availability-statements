@@ -5,7 +5,6 @@ import os
 import logging
 
 import pandas as pd
-import numpy as np
 from sqlalchemy import create_engine, engine, MetaData, Table, select, or_
 from snowflake.sqlalchemy import URL
 from dotenv import load_dotenv, find_dotenv
@@ -101,12 +100,12 @@ def download_data(conn, questions, articles):
 
 
 def save_data(df):
-    PROJ_ROOT = os.path.abspath(os.path.join(os.curdir))
     save_path = os.path.join(PROJ_ROOT + "/data/raw/" + "das.feather")
     df.to_feather(save_path)
     logging.info(f"Saved to {save_path}.")
 
 
+PROJ_ROOT = os.path.abspath(os.path.join(os.curdir))
 secrets = get_secrets()
 engine = make_engine(secrets)
 (conn, questions, articles) = connect_to_engine(engine)
