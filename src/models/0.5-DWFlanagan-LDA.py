@@ -51,7 +51,7 @@ def save_model(topic_model):
         PROJ_ROOT + "/models/" + "lda_" + str(N_TOPICS) + ".joblib"
     )
     logging.info(f"Writing model to {save_path}.")
-    dump(topic_model, write_path)
+    dump(topic_model, save_path)
 
 
 PROJ_ROOT = os.path.join(os.curdir)
