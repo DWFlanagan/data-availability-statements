@@ -1,8 +1,9 @@
 # Use `snakemake` to execute this workflow.
+# Use `snakemake --dag | dot -Tpdf > dag.pdf` to visualize the DAG.
 
 
 rule Finish:
-    input: "data/processed/tokenized.feather"
+    input: "models/lda_20.joblib"
     # Put the final output file as the first rule so all rules run.
 
 rule Extract_data:
@@ -19,7 +20,7 @@ rule Tokenize_data_Spacy:
     output: "data/processed/tokenized.feather"
     script: "src/features/0.4-DWFlanagan-Tokenize.py"
 
-rule LDA_scikit-learn:
+rule LDA_scikit_learn:
     input: "data/processed/tokenized.feather"
     output: "models/lda_20.joblib"
     script: "src/models/0.5-DWFlanagan-LDA.py"
