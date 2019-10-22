@@ -7,6 +7,7 @@ import logging
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
+from joblib import dump
 
 logging.basicConfig(
     filename="das.log",
@@ -45,9 +46,18 @@ def build_lda_model(tfidf, n_topics=20):
     return topic_model
 
 
+def save_model(topic_model):
+    save_path = os.path.join(
+        PROJ_ROOT + "/models/" + "lda_" + str(N_TOPICS) + ".joblib"
+    )
+    logging.info(f"Writing model to {save_path}.")
+    dump(topic_model, write_path)
+
+
 PROJ_ROOT = os.path.join(os.curdir)
+N_TOPICS = 20
 
 tokenized_statments = load_data()
 tfidf = vectorize(tokenized_statments)
-topic_model = build_lda_model(tfidf)
-
+topic_model = build_lda_model(tfidf, N_TOPICS)
+save_model(topic_model)

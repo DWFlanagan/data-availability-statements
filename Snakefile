@@ -14,7 +14,12 @@ rule Filter_data:
     output: "data/interim/data_statements.feather"
     script: "src/data/0.2-DWFlanagan-Prepare-and-filter.py"
 
-rule Tokenize_data:
+rule Tokenize_data_Spacy:
     input: "data/interim/data_statements.feather"
     output: "data/processed/tokenized.feather"
     script: "src/features/0.4-DWFlanagan-Tokenize.py"
+
+rule LDA_scikit-learn:
+    input: "data/processed/tokenized.feather"
+    output: "models/lda_20.joblib"
+    script: "src/models/0.5-DWFlanagan-LDA.py"
