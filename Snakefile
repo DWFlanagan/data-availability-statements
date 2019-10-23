@@ -3,8 +3,8 @@
 
 
 rule Finish:
-    input: "models/lda_20.joblib"
     # Put the final output file as the first rule so all rules run.
+    input: "models/lda_20.joblib"
 
 rule Extract_data:
     output: "data/raw/das.feather"
