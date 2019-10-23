@@ -23,4 +23,5 @@ rule Tokenize_data_Spacy:
 rule LDA_scikit_learn:
     input: "data/processed/tokenized.feather"
     output: "models/lda_20.joblib"
+    output: "models/tfidf.joblib"
     script: "src/models/0.5-DWFlanagan-LDA.py"
