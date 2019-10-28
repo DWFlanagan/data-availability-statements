@@ -6,7 +6,10 @@ Can we analyze the data availability statements we receive with actual submissio
 
 To build this pipeline, run
 
-`snakemake`
+```
+$ pip install snakemake
+$ snakemake --use-conda
+```
 
 To visualize the data pipeline, run
 
