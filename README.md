@@ -4,7 +4,7 @@ Can we analyze the data availability statements we receive with actual submissio
 
 ## Building with snakemake
 
-To build this pipeline, run
+To build this pipeline, create and activate a fresh `conda` environment, and run
 
 ```
 $ pip install snakemake
